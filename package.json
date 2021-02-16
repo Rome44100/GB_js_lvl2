@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Rome44100/GB_js_lvl2/issues"
   },
-  "homepage": "https://github.com/Rome44100/GB_js_lvl2#readme"
+  "homepage": "https://github.com/Rome44100/GB_js_lvl2#readme",
+  "dependencies": {
+    "mime": "^2.5.0"
+  }
 }
