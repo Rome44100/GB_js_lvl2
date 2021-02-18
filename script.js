@@ -14,7 +14,7 @@ const mime = require('mime');
 // create server instant
 const server = http.createServer((req, res) => {
     // change document root
-    let lessonPath = "./Lesson_1";
+    let lessonPath = "./public";
     // set index file
     let retPath = "/index.html";
 
