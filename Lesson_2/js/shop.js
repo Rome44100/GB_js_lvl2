@@ -133,21 +133,14 @@ class Cart {
         this._items = goods;
     }
 
-    render(Obj) {
-        let elems = [];
-        this._items.forEach(el => {
-            //el.render();
-            if (this._names.includes(Obj._name)) {
-
-            } else {
-                elems.push(el.render());
-            }
-        });
-
+    render() {
         let place = document.querySelector(".basket_list");
         if (place) {
+            place.innerHTML = "";
             place.style.display = "block";
-            place.innerHTML = elems.join('');
+            this._items.forEach(el => {
+                place.appendChild(el.render());
+            });
         }
     };
 }
@@ -181,9 +174,6 @@ class CartItem {
 
     };
 
-    increase() {
-
-    };
 }
 
 const CartInstance = new Cart();
