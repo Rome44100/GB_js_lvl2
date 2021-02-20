@@ -203,6 +203,7 @@ header {
     background-repeat: no-repeat;
     width: 30px;
     height: 30px;
+    position: relative;
 }
 
 .cnt_basket {
@@ -220,6 +221,18 @@ header {
     position: relative;
     top: -8px;
     left: 20px;
+}
+
+.basket_list {
+    padding: 20px;
+    background-color: #fff;
+    opacity: .9;
+    display: none;
+    position: absolute;
+}
+
+.cart_icon:hover .basket_list {
+    display: block;
 }
 
 .nav_button {

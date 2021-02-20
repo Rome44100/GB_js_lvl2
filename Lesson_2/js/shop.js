@@ -46,7 +46,6 @@ class GoodsItem {
 
     addToCart() {
         this._cartInstance.add(this);
-        console.log("Added to cart!", this._name);
     };
 
     render() {
@@ -96,19 +95,95 @@ class GoodsItem {
 
 class Cart {
     _items = [];
+    _names = [];
 
     // Добавлять объект товара
-    add() {
+    add(Obj) {
+        if (0 == this._items.length) {
+            Obj._cnt = 1;
+            this._items.push(Obj);
+            this._names.push(Obj._name);
+        } else {
+            if (this._names.includes(Obj._name)) {
+                this._items.find(el => {
+                    if (Obj._name == el._name) {
+                        el._cnt++;
+                        return el;
+                    }
+                });
+            } else {
+                Obj._cnt = 1;
+                this._items.push(Obj);
+                this._names.push(Obj._name);
+            }
+        }
 
+        this.convertToObj();
+
+        this.render(Obj);
     };
 
-    render() {
+    convertToObj() {
+        let goods = null;
+        goods = this._items.map(el => {
+            //console.log(el);
+            return new CartItem(el);
+        });
 
+        this._items = goods;
+    }
+
+    render(Obj) {
+        let elems = [];
+        this._items.forEach(el => {
+            //el.render();
+            if (this._names.includes(Obj._name)) {
+
+            } else {
+                elems.push(el.render());
+            }
+        });
+
+        let place = document.querySelector(".basket_list");
+        if (place) {
+            place.style.display = "block";
+            place.innerHTML = elems.join('');
+        }
     };
 }
 
 class CartItem {
+    _name = "";
+    _price = "";
+    _img = "";
+    _obj = null;
+    _cnt = 1;
 
+    constructor({ _name, _price, _img, obj, _cnt }) {
+        this._name = _name;
+        this._price = _price;
+        this._img = _img;
+        this._obj = obj;
+        this._cnt = _cnt;
+    };
+
+    render() {
+
+        const block = document.createElement("div");
+        block.innerHTML = `<div style="clear:both;">
+            <img style="width: 50px; float: left;" src="${this._img}" alt="${this._name}">
+            <span>${this._name}</span>
+            <span>${this._price}</span>
+            <input type="number" value="${this._cnt}" style="width: 40px;">
+        </div>`;
+
+        return block;
+
+    };
+
+    increase() {
+
+    };
 }
 
 const CartInstance = new Cart();
