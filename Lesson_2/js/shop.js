@@ -1,9 +1,16 @@
 "use strict";
 
-class List {
+class AbstractList {
     _items = [];
+}
+
+class List extends AbstractList {
 
     constructor(CartInstance) {
+        // при переопределении конструктора родителя нужно обязательно вызывать super
+        // при этом если нет аргументов у родителя, то можно и без них в дочернем вызывать super
+        super();
+
         let goods = this.fetchGoods();
 
         goods = goods.map(el => {
@@ -93,8 +100,7 @@ class GoodsItem {
     };
 }
 
-class Cart {
-    _items = [];
+class Cart extends AbstractList {
     _names = [];
 
     // Добавлять объект товара
@@ -138,11 +144,41 @@ class Cart {
         if (place) {
             place.innerHTML = "";
             place.style.display = "block";
-            this._items.forEach(el => {
-                place.appendChild(el.render());
+
+            let elems = this._items;
+
+            this._items.map((el, index, arr) => {
+                const block = el.render();
+                place.appendChild(block);
+
+                const input = block.querySelector("input");
+
+                input.addEventListener("change", function (event) {
+                    event.target.value = event.target.value > 0 ? event.target.value : 1;
+                    el._cnt = event.target.value;
+                });
+
+                // дублирую для keyup, если вручную ставим цифру
+                // TODO перенести в отдельный метод и передавать в него event и elem
+                input.addEventListener("keyup", function (event) {
+                    event.target.value = event.target.value > 0 ? event.target.value : 1;
+                    el._cnt = event.target.value;
+                    console.log(el);
+                });
+
+                const del = block.querySelector("a");
+                del.addEventListener("click", function (event) {
+                    arr.splice(index, 1);
+                    event.target.parentNode.parentNode.remove();
+                });
+
             });
         }
     };
+
+    changeCount() {
+        //alert("hello");
+    }
 }
 
 class CartItem {
@@ -168,10 +204,10 @@ class CartItem {
             <span>${this._name}</span>
             <span>${this._price}</span>
             <input type="number" value="${this._cnt}" style="width: 40px;">
+            <a href="#0">Х</a>
         </div>`;
 
         return block;
-
     };
 
 }
