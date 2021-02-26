@@ -7,7 +7,7 @@ class AbstractList {
 class List extends AbstractList {
 
     _elemsAddCnt = 1;
-    _url = "http://localhost:3000/database/items.json";
+    _url = `${document.location.protocol}//${document.location.host}/database/items.json`;
 
     constructor(CartInstance) {
         // при переопределении конструктора родителя нужно обязательно вызывать super
@@ -28,7 +28,7 @@ class List extends AbstractList {
         });
 
         const placeToRender = document.querySelector(".products_wrap");
-        this._url = `http://localhost:3000/database/items${this._elemsAddCnt}.json`;
+        this._url = `${document.location.protocol}//${document.location.host}/database/items${this._elemsAddCnt}.json`;
 
         if (placeToRender) {
             const btn = new Button("Еще товары", () => {
