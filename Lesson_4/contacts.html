@@ -66,25 +66,22 @@
                 <h2>Обратная связь</h2>
                 <hr />
                 <div class="feedback" style="margin: 20px 0;">
-                    <form id="skeeks1-active-form" action="contacts.html" method="post">
+                    <form id="contacts-form" action="contacts.html" method="post">
                         <div>
                             <label for="introduce">Представьтесь&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
-                            <span style="color: red;">Только буквы</span>
-                            <input type="text" id="introduce" name="introduce">
+                            <span style="visibility: hidden; color: red;">Только буквы</span>
+                            <input type="text" id="introduce" name="introduce" placeholder="Иван">
                         </div>
-                        
                         <div>
                             <label for="phone">Телефон&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
-                            <span style="color: red;">Маска +7(000)000-0000</span>
-                            <input type="text" id="phone" name="phone">
+                            <span style="visibility: hidden; color: red;">Маска +7(000)000-0000</span>
+                            <input type="text" id="phone" name="phone" placeholder="+7(000)000-0000">
                         </div>
-                        
                         <div>
                             <label for="email">E-mail&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
-                            <span style="color: red;">Маска mail-my.me@test.com</span>
+                            <span style="visibility: hidden; color: red;">Маска mail-my.me@test.com</span>
                             <input type="text" id="email" name="email">
                         </div>
-                        
                         <div>
                             <label for="message">Сообщение</label>
                             <textarea id="message" name="message"></textarea>
@@ -92,7 +89,6 @@
                         <button type="submit" class="btn btn-primary">Отправить</button>
                     </form>
                 </div>
-                
             </section>
         </main>
         <footer>
