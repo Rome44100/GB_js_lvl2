@@ -3,7 +3,24 @@ const path = require("path");
 module.exports = {
     entry: "./Lesson_5/js/shop.js",
     output: {
-        path: path.resolve(__dirname, 'js'),
+        path: path.resolve(__dirname, 'Lesson_5/js/'),
         filename: "main.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [
+                    { loader: "babel-loader" }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' }
+                ]
+            }
+        ]
     }
 }
