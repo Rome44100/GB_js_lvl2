@@ -4,7 +4,7 @@ const base = require("./webpack.config");
 module.exports = merge(base, {
     devServer: {
         contentBase: "./Lesson_5",
-        publicPath: "/js",
+        publicPath: "/public",
         host: "localhost",
         port: 8080,
         hot: true
