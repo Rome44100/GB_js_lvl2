@@ -11,18 +11,18 @@ export default class Cart extends AbstractList {
 
     // Добавлять объект товара
     add(Obj) {
-        if (0 == this._items.length) {
+        if (!this._items.length) {
             Obj._cnt = 1;
             this._items.push(Obj);
             this._names.push(Obj._name);
         } else {
             if (this._names.includes(Obj._name)) {
-                this._items.find(el => {
-                    if (Obj._name == el._name) {
-                        el._cnt++;
+                let foundEl = this._items.find(el => {
+                    if (Obj._name === el._name) {
                         return el;
                     }
                 });
+                foundEl._cnt++;
             } else {
                 Obj._cnt = 1;
                 this._items.push(Obj);
@@ -34,6 +34,8 @@ export default class Cart extends AbstractList {
         this._basket_price += Obj._price;
 
         this.convertToObj();
+
+        //this._items.push(new CartItem(Obj));
 
         //console.log(this);
 
