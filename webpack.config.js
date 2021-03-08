@@ -1,9 +1,10 @@
 const path = require("path");
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
-    entry: "./Lesson_5/js/shop.js",
+    entry: "./Lesson_6/src/shop.js",
     output: {
-        path: path.resolve(__dirname, 'Lesson_5/public/'),
+        path: path.resolve(__dirname, 'Lesson_6/public/'),
         filename: "server.js"
     },
     module: {
@@ -18,9 +19,23 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader' }
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.vue$/,
+                use: [
+                    { loader: 'vue-loader' }
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
 }
