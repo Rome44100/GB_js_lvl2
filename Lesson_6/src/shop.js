@@ -8,3 +8,5 @@ new Vue({
         App
     }
 });
+
+let MyVueComponent = null;

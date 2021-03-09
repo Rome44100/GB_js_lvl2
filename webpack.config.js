@@ -7,6 +7,11 @@ module.exports = {
         path: path.resolve(__dirname, 'Lesson_6/public/'),
         filename: "server.js"
     },
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
+    },
     module: {
         rules: [
             {
