@@ -1,17 +1,15 @@
 <template>
   <div>
-    <Header />
-    <main>
-      <h3>Content</h3>
-    </main>
+    <Catalog />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Catalog from "./components/Catalog.vue";
+
 export default {
   components: {
-    Header,
+    Catalog,
   },
 };
 </script>

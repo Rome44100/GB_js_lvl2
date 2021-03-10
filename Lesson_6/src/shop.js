@@ -2,11 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 
 new Vue({
-    el: "main",
+    el: "#app",
     template: "<App />",
     components: {
         App
     }
 });
-
-let MyVueComponent = null;
