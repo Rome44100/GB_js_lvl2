@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triton</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <div class="bg_roof_pipe">
+        <div class="bg_roof_pipe_top"></div>
+        <div class="bg_roof_pipe_middle"></div>
+        <div class="bg_roof_pipe_bottom"></div>
+    </div>
+    <div class="body_wrap">
+        <header id="top">
+            <div class="head_bar side_padding">
+                <div class="head_title">
+                    <p class="head_title_content">Водосточные системы в Зеленограде</p>
+                </div>
+                <div class="head_elems">
+                    <div class="head_phone">
+                        <a href="tel:+79091674949">+7&nbsp;(909)&nbsp;167&ndash;49&ndash;49</a>
+                    </div>
+                    <div class="head_email">
+                        <a href="mailto:info@triton-vodostok.ru">info@triton-vodostok.ru</a>
+                    </div>
+                </div>
+            </div>
+            <div class="head_nav side_padding">
+                <div class="logo">
+                    <a href="#0"><img src="img/logo.png" alt='Логотип компании "Тритон"'></a>
+                </div>
+                <div class="nav_wrap">
+                    <div class="basket">
+                        <a href="basket.html" class="cart_icon"><span class="cnt_basket">2</span></a>
+                    </div>
+                    <div class="nav">
+                        <input type="checkbox" id="main_nav" class="hide_input">
+                        <label for="main_nav" class="nav_button_label">
+                            <span class="nav_button"></span>
+                        </label>
+                        <nav class="main_menu">
+                            <ul class="first-level">
+                                <li><a href="contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="page_title">
+                <h2>Контакты</h2>
+            </section>
+            <section class="frivolous side_padding">
+                <!-- here some frivolous content -->
+                <p style="margin: 20px 0;">
+                    <span class="block"><strong><i class="fa fa-map-marker"></i> Адрес:</strong> Московская область, п. Андреевка(офис)</span>
+                    <span class="block"><strong><i class="fa fa-phone"></i> Телефон:</strong> <a href="tel:+79091674949">+7 (909) 167-49-49</a><br /></span>
+                    <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info@triton-vodostok.ru">info@triton-vodostok.ru</a></span>
+                </p>
+                <h2>Обратная связь</h2>
+                <hr />
+                <div class="feedback" style="margin: 20px 0;">
+                    <form id="contacts-form" action="contacts.html" method="post">
+                        <div>
+                            <label for="introduce">Представьтесь&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
+                            <span style="visibility: hidden; color: red;">Только буквы</span>
+                            <input type="text" id="introduce" name="introduce" placeholder="Иван">
+                        </div>
+                        <div>
+                            <label for="phone">Телефон&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
+                            <span style="visibility: hidden; color: red;">Маска +7(000)000-0000</span>
+                            <input type="text" id="phone" name="phone" placeholder="+7(000)000-0000">
+                        </div>
+                        <div>
+                            <label for="email">E-mail&nbsp;<sup style="color: red; font-weight: 900;">*</sup></label>
+                            <span style="visibility: hidden; color: red;">Маска mail-my.me@test.com</span>
+                            <input type="text" id="email" name="email" placeholder="text@text.th">
+                        </div>
+                        <div>
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div id="triton_up"><a href="#top" title="Наверх!"></a></div>
+            <div class="foot_add">
+                <div>
+                    <h5>Контакты</h5>
+                    <address>
+                        <p><span class="contact_icon"></span>Московская область, п. Андреевка (офис)</p>
+                        <p><span class="phone_icon"></span>Телефон: <a href="tel:+7(909)167-49-49">+7 (909) 167-49-49</a></p>
+                        <p><span class="email_icon"></span>Телефон: <a href="mailto:info@triton-vodostok.ru">info@triton-vodostok.ru</a></p>
+                    </address>
+                </div>
+                <div>
+                    <h5>Меню</h5>
+                    <ul class="foot_menu">
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="catalog.html">Продукция</a></li>
+                        <li><a href="novelty.html">Новинки</a></li>
+                        <li><a href="calc.html">Расчет</a></li>
+                        <li><a href="mount.html">Монтаж</a></li>
+                        <li><a href="photo.html">Фото</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>             
+                </div>
+                <div>
+                    <h5>Мы в соцсетях</h5>
+                    <div class="social"><a href="https://vk.com/triton">VK</a></div>
+                </div>
+            </div>
+            <div class="copyright side_padding">
+                <div class="copy">&copy; 2013&ndash;2021 "Triton" &mdash; интернет магазин водосточных систем.</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
