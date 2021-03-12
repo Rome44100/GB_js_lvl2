@@ -3,9 +3,11 @@
     <CatalogItem
       v-for="item in elems"
       :key="item.id"
+      :id="item.id"
       :img="item.img"
       :name="item.name"
       :price="item.price"
+      @bringToBasket="onButtonClick"
     />
   </div>
 </template>
@@ -46,6 +48,18 @@ export default {
   },
   components: {
     CatalogItem,
+  },
+  methods: {
+    onButtonClick({ id }) {
+      // здесь, похоже, надо делать как-то раз в 5 изящнее :)
+      for (let i = 0; i < this.elems.length; i++) {
+        if (id == this.elems[i].id) {
+          console.log(
+            `Добавили в корзину элемент с именем "${this.elems[i].name}"`
+          );
+        }
+      }
+    },
   },
 };
 </script>

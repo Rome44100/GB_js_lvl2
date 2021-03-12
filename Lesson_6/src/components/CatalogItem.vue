@@ -19,6 +19,7 @@
         </div>
         <div class="product_buy_button">
           <!-- RENDER BUTTON BUY -->
+          <button @click="addToCart" class="btn">Купить</button>
         </div>
       </div>
     </div>
@@ -28,9 +29,15 @@
 <script>
 export default {
   props: {
+    id: Number,
     img: String,
     name: String,
     price: Number,
+  },
+  methods: {
+    addToCart() {
+      this.$emit("bringToBasket", { id: this.id });
+    },
   },
 };
 </script>

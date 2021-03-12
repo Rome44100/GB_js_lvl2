@@ -7,15 +7,15 @@
 <script>
 import Catalog from "./components/Catalog.vue";
 
+import Cart from "./components/Cart.vue";
+
 export default {
   components: {
     Catalog,
+    Cart,
   },
 };
 </script>
 
 <style module>
-.myheader {
-  color: red;
-}
 </style>
