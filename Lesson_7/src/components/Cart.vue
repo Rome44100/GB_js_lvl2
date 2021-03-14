@@ -1,6 +1,6 @@
 <template>
-  <div class="basket_list" style="right: 0px; width: 50vw; display: block">
-    Корзина пуста
+  <div>
+    Корзина пуста {{ getData }}
     <CartItem
       v-for="item in elems"
       :key="item.id"
@@ -9,19 +9,22 @@
       :name="item.name"
       :price="item.price"
     />
-    <div style="clear: both">
+    <!-- <div style="clear: both">
       <hr />
       Всего товаров в корзине: <span id="total_cnt">0</span>
-    </div>
+    </div> -->
     <div>
       <hr />
-      Общая стоимость всей корзины: <span id="basket_price">0</span>
+      Общая стоимость всей корзины:
+      <span id="basket_price">{{ getFullPrice }}</span>
     </div>
   </div>
 </template>
 
 <script>
 import CartItem from "./CartItem.vue";
+
+import { mapMutations, mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
@@ -31,11 +34,21 @@ export default {
       totalPrice: 0,
     };
   },
+  methods: {
+    //...mapMutations(["setData"]),
+    ...mapActions(["requestData"]),
+  },
+  computed: {
+    ...mapGetters(["getData", "getFullPrice"]),
+  },
+  created() {
+    this.requestData(1);
+  },
   components: {
     CartItem,
   },
 };
 </script>
 
-<style>
+<style module>
 </style>
