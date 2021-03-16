@@ -19,7 +19,9 @@
         </div>
         <div class="product_buy_button">
           <!-- RENDER BUTTON BUY -->
-          <button @click="addToCart" class="btn">Купить</button>
+          <button @click="addToCart" class="btn" :id="getItemData.id">
+            Купить
+          </button>
         </div>
       </div>
     </div>
@@ -31,10 +33,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   props: {
-    id: Number,
-    name: String,
-    img: String,
-    price: Number,
+    id: String,
   },
   computed: {
     ...mapGetters(["getData"]),

@@ -1,9 +1,9 @@
 <template>
   <div class="products_wrap">
     <CatalogItem
-      v-for="item in getData"
-      :key="item.id"
-      :id="item.id"
+      v-for="id in getItemsOnPage"
+      :key="id"
+      :id="id"
       @bringToBasket="addToCart"
     />
   </div>
@@ -22,7 +22,7 @@ export default {
     ...mapActions(["requestData", "addToCart"]),
   },
   computed: {
-    ...mapGetters(["getData", "getFullPrice"]),
+    ...mapGetters(["getItemsOnPage", "getFullPrice"]),
   },
   created() {
     this.requestData();

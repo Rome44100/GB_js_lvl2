@@ -45,8 +45,9 @@ export default new Vuex.Store({
                     commit('setData', { newData: res });
                 });
         },
-        addToCart(id) {
-            this.commit("setBasket", id);
+        addToCart({ commit }, id) {
+            //console.log(id.target.id);
+            commit("setBasket", id.target.id);
         }
     },
 });

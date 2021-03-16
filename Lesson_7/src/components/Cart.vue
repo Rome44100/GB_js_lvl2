@@ -1,14 +1,7 @@
 <template>
   <div :class="$style.basket_vue">
     Корзина пуста
-    <CartItem
-      v-for="item in getItemsInCart"
-      :key="item.id"
-      :id="item.id"
-      :img="item.img"
-      :name="item.name"
-      :price="item.price"
-    />
+    <CartItem v-for="id in getItemsInCart" :key="id" :id="id" />
     <div>
       <hr />
       Общая стоимость всей корзины:
