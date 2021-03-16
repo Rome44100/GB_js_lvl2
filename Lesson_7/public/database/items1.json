@@ -1,6 +1,6 @@
 {
-    "1":  { "id": 1, "name": "Воронка желоба Евро ОДИН", "price": 250, "img": "img/voronka-jeloba-evro.png" },
-    "2":  { "id": 2, "name": "Заглушка желоба с резиновым уплотнителем ОДИН", "price": 160, "img": "img/voronka-jeloba-evro.png" },
-    "3":  { "id": 3, "name": "Желоб водосточный Евро ОДИН", "price": 360, "img": "img/voronka-jeloba-evro.png" },
-    "4":  { "id": 4, "name": "Соединитель желоба ОДИН", "price": 760, "img": "img/voronka-jeloba-evro.png" }
+    "5":  { "id": 5, "name": "Воронка желоба Евро ОДИН", "price": 250, "img": "img/voronka-jeloba-evro.png" },
+    "6":  { "id": 6, "name": "Заглушка желоба с резиновым уплотнителем ОДИН", "price": 160, "img": "img/voronka-jeloba-evro.png" },
+    "7":  { "id": 7, "name": "Желоб водосточный Евро ОДИН", "price": 360, "img": "img/voronka-jeloba-evro.png" },
+    "8":  { "id": 8, "name": "Соединитель желоба ОДИН", "price": 760, "img": "img/voronka-jeloba-evro.png" }
 }

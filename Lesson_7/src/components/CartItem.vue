@@ -1,9 +1,13 @@
 <template>
   <div>
     <div style="clear: both">
-      <img style="width: 50px; float: left" :src="img" :alt="name" />
-      <span>{{ name }}</span>
-      <span>{{ price }}</span>
+      <img
+        style="width: 50px; float: left"
+        :src="getItemData.img"
+        :alt="getItemData.name"
+      />
+      <span>{{ getItemData.name }}</span>
+      <span>{{ getItemData.price }}</span>
       <input
         type="number"
         value="1"
@@ -17,12 +21,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: {
     id: Number,
-    img: String,
-    name: String,
-    price: Number,
+  },
+  computed: {
+    ...mapGetters(["getData"]),
+    getItemData() {
+      return this.getData[this.id];
+    },
   },
   methods: {
     destroy() {

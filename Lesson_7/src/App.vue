@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Catalog />
     <Cart />
+    <Catalog />
   </div>
 </template>
 
