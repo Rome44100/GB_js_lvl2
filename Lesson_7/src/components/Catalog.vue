@@ -22,7 +22,7 @@ export default {
     ...mapActions(["requestData", "addToCart"]),
   },
   computed: {
-    ...mapGetters(["getItemsOnPage", "getFullPrice"]),
+    ...mapGetters(["getItemsOnPage"]),
   },
   created() {
     this.requestData();
