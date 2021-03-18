@@ -18,8 +18,8 @@ export default new Vuex.Store({
     // изменение состояния
     mutations: {
         setData(state, payload) {
-            state.data = payload.newData;
-            state.itemsOnPage = Object.keys(payload.newData);
+            state.data = { ...state.data, ...payload.newData };
+            state.itemsOnPage.push(...Object.keys(payload.newData));
         },
         setBasket(state, id) {
             state.itemsInCart.push(id);
@@ -37,7 +37,10 @@ export default new Vuex.Store({
     // логика в рамках хранилища, но не могут изменять состояние
     actions: {
         requestData({ commit, state }, page = "") {
-            fetch(`/public/database/items${page}.json`)
+            //fetch(`/public/database/items${page}.json`)
+            fetch(`/itemslist/${page}`, {
+                method: "GET",
+            })
                 .then(res => {
                     return res.json();
                 })
@@ -48,6 +51,21 @@ export default new Vuex.Store({
         addToCart({ commit }, id) {
             //console.log(id.target.id);
             commit("setBasket", id.target.id);
+        },
+        addItem({ }, data) {
+            fetch("/itemslist/", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(res => {
+                    return res.json();
+                })
+                .then(res => {
+                    //console.log(res);
+                });
         }
     },
 });

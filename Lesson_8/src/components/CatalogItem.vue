@@ -1,13 +1,13 @@
 <template>
   <div class="one_product">
     <div class="one_prod_img">
-      <a href="detail.html">
+      <a href="#0">
         <img :src="getItemData.img" :alt="getItemData.name" loading="lazy" />
       </a>
     </div>
     <div class="one_prod_title">
       <h3>
-        <a href="detail.html">{{ getItemData.name }}</a>
+        <a href="#0">{{ getItemData.name }}</a>
       </h3>
     </div>
     <div class="product_buy">
