@@ -26,7 +26,7 @@ export default {
     ...mapActions(["addItem"]),
     addGood() {
       const goodToAdd = { name: this.name, price: this.price };
-      console.log(goodToAdd);
+      //console.log(goodToAdd);
       this.addItem(goodToAdd);
     },
   },

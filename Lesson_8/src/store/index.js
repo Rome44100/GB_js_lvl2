@@ -22,6 +22,7 @@ export default new Vuex.Store({
             state.itemsOnPage.push(...Object.keys(payload.newData));
         },
         setBasket(state, id) {
+            console.log(id);
             state.itemsInCart.push(id);
         }
     },
@@ -48,9 +49,40 @@ export default new Vuex.Store({
                     commit('setData', { newData: res });
                 });
         },
-        addToCart({ commit }, id) {
+        requestCart({ commit, state }) {
+            fetch('/basket', {
+                method: "GET",
+            })
+                .then(res => {
+                    return res.json();
+                })
+                .then(res => {
+                    //console.log(res);
+                    //return res;
+                    for (let i in res) {
+                        //console.log(res[i].price);
+                        let id = res[i].id;
+                        commit('setBasket', id);
+                    }
+                });
+        },
+        //addToCart({ commit }, id) {
+        addToCart({ }, data) {
             //console.log(id.target.id);
-            commit("setBasket", id.target.id);
+            //commit("setBasket", id.target.id);
+            fetch("/basket", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(res => {
+                    return res.json();
+                })
+                .then(res => {
+                    //this.requestCart();
+                });
         },
         addItem({ }, data) {
             fetch("/itemslist/", {

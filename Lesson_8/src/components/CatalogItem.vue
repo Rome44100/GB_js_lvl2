@@ -19,7 +19,13 @@
         </div>
         <div class="product_buy_button">
           <!-- RENDER BUTTON BUY -->
-          <button @click="addToCart" class="btn" :id="getItemData.id">
+          <button
+            @click="replaceToCart"
+            class="btn"
+            :id="getItemData.id"
+            :name="getItemData.name"
+            :price="getItemData.price"
+          >
             Купить
           </button>
         </div>
@@ -42,7 +48,17 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["addToCart"]),
+    ...mapActions(["addToCart", "requestCart"]),
+    replaceToCart() {
+      //console.log("try to show name = ", this.getItemData);
+      const goodToAdd = {
+        name: this.getItemData.name,
+        price: this.getItemData.price,
+      };
+      //console.log(goodToAdd);
+      this.addToCart(goodToAdd);
+      this.requestCart();
+    },
   },
 };
 </script>

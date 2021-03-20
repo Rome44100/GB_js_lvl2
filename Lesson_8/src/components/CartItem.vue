@@ -25,7 +25,7 @@ import { mapGetters } from "vuex";
 
 export default {
   props: {
-    id: String,
+    id: Number,
   },
   computed: {
     ...mapGetters(["getData"]),

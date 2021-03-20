@@ -88,6 +88,33 @@ app.post('/itemslist', (req, res) => {
     });
 });
 
+app.post('/basket', (req, res) => {
+    const offset = 0;
+    const filePath = "./Lesson_8/public/database/basket.json";
+    fs.readFile(filePath, "utf8", (err, data) => {
+        //console.log(data);
+        const list = JSON.parse(data || {});
+        const amountData = Object.keys(list).length;
+        const newId = offset + amountData + 1;
+        const newItem = req.body;
+        newItem.id = newId;
+        newItem.img = "img/voronka-jeloba-evro.png";
+        list[newId] = newItem;
+        fs.writeFile(filePath, JSON.stringify(list), (err) => {
+            if (err) {
+                console.log(err);
+            }
+            res.send(list);
+        });
+    });
+});
+
+app.get("/basket", (req, res) => {
+    fs.readFile(`./Lesson_8/public/database/basket.json`, "utf8", (err, data) => {
+        res.send(data);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}!`);
 });
