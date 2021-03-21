@@ -97,6 +97,14 @@ app.post('/basket', (req, res) => {
         const amountData = Object.keys(list).length;
         const newId = offset + amountData + 1;
         const newItem = req.body;
+        //console.log("list = ", list, "newItem = ", newItem);
+        for (let key in list) {
+            //console.log(list[key].id);
+            if (newItem.id == list[key].id) {
+                return;
+                // TODO increase element qty
+            }
+        }
         newItem.id = newId;
         newItem.img = "img/voronka-jeloba-evro.png";
         list[newId] = newItem;
@@ -110,7 +118,7 @@ app.post('/basket', (req, res) => {
 });
 
 app.get("/basket", (req, res) => {
-    fs.readFile(`./Lesson_8/public/database/basket.json`, "utf8", (err, data) => {
+    fs.readFile("./Lesson_8/public/database/basket.json", "utf8", (err, data) => {
         res.send(data);
     });
 });

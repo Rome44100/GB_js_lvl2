@@ -1,6 +1,5 @@
 <template>
   <div :class="$style.basket_vue">
-    Корзина пуста
     <CartItem v-for="id in getItemsInCart" :key="id" :id="id" />
     <div>
       <hr />

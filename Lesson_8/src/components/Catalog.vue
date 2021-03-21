@@ -28,17 +28,22 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["requestData", "addToCart"]),
+    ...mapActions(["requestData", "addToCart", "requestCart"]),
     loadMoreData() {
       this.page++;
       this.requestData(this.page);
     },
+    // travelToCart() {
+    //   this.addToCart();
+    //   this.requestCart();
+    // },
   },
   computed: {
     ...mapGetters(["getItemsOnPage"]),
   },
   created() {
     this.loadMoreData();
+    this.requestCart();
   },
 };
 </script>

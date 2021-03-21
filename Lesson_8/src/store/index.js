@@ -22,8 +22,11 @@ export default new Vuex.Store({
             state.itemsOnPage.push(...Object.keys(payload.newData));
         },
         setBasket(state, id) {
-            console.log(id);
-            state.itemsInCart.push(id);
+            //console.log(id);
+            //console.log(state.itemsInCart);
+            if (!state.itemsInCart.includes(id)) {
+                state.itemsInCart.push(id);
+            }
         }
     },
     getters: {
@@ -54,20 +57,24 @@ export default new Vuex.Store({
                 method: "GET",
             })
                 .then(res => {
+                    //console.log("First then setBasket! res = ", res);
                     return res.json();
                 })
                 .then(res => {
-                    //console.log(res);
+                    //console.log("second then set basket, res = ", res);
                     //return res;
+                    // if (Object.keys(res).length == 0) {
+                    //     console.log("res = 0");
+                    // }
                     for (let i in res) {
-                        //console.log(res[i].price);
                         let id = res[i].id;
+                        //console.log("second then for commit setBasket!");
                         commit('setBasket', id);
                     }
                 });
         },
         //addToCart({ commit }, id) {
-        addToCart({ }, data) {
+        addToCart({ commit }, data) {
             //console.log(id.target.id);
             //commit("setBasket", id.target.id);
             fetch("/basket", {
@@ -82,6 +89,13 @@ export default new Vuex.Store({
                 })
                 .then(res => {
                     //this.requestCart();
+                    //console.log(res);
+                    //commit('setBasket', res.id);
+                    for (let i in res) {
+                        let id = res[i].id;
+                        //console.log("second then for commit setBasket!");
+                        commit('setBasket', id);
+                    }
                 });
         },
         addItem({ }, data) {
@@ -99,5 +113,9 @@ export default new Vuex.Store({
                     //console.log(res);
                 });
         }
+    },
+    updated: function () {
+        console.log("updated");
+        this.requestCart();
     },
 });

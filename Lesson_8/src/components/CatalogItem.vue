@@ -52,12 +52,12 @@ export default {
     replaceToCart() {
       //console.log("try to show name = ", this.getItemData);
       const goodToAdd = {
+        id: this.getItemData.id,
         name: this.getItemData.name,
         price: this.getItemData.price,
       };
-      //console.log(goodToAdd);
       this.addToCart(goodToAdd);
-      this.requestCart();
+      // this.requestCart();
     },
   },
 };
