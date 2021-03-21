@@ -1,9 +1,5 @@
 "use strict";
-/*
-const fs = require('fs');
-const text = fs.readFileSync('script.js', 'utf8');
-console.log(text);
-*/
+
 // add http lib
 const http = require('http');
 // add file system lib
@@ -14,7 +10,7 @@ const mime = require('mime');
 // create server instant
 const server = http.createServer((req, res) => {
     // change document root
-    let lessonPath = "./Lesson_4";
+    let lessonPath = "./Lesson_5";
     // set index file
     let retPath = "/index.html";
 
@@ -33,20 +29,6 @@ const server = http.createServer((req, res) => {
             res.statusCode = 404;
             res.end('Oooooops! Not found!!!');
         } else {
-
-            /*
-            // set response body only for byte length
-            const body = fs.readFileSync(fullPath, 'utf8');
-
-            // set css mime type header
-            if (-1 != req.url.indexOf("css")) {
-                res.writeHead(200, {
-                    'Content-Length': Buffer.byteLength(body),
-                    'Content-Type': 'text/css'
-                });
-            }
-            */
-
             // correct mime types
             res.setHeader('Content-Type', mime.getType(fullPath));
 
@@ -54,8 +36,6 @@ const server = http.createServer((req, res) => {
             fs.createReadStream(fullPath).pipe(res);
         }
     });
-
-    //res.end(body);
 });
 
 // correct port
