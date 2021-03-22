@@ -27,6 +27,9 @@
     "css-loader": "^5.1.1",
     "mime": "^2.5.0",
     "style-loader": "^2.0.0",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
     "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {

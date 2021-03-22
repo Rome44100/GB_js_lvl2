@@ -1,0 +1,8 @@
+{
+    "data": [
+        { "name": "Воронка желоба Евро", "price": 250, "img": "img/voronka-jeloba-evro.png" },
+        { "name": "Заглушка желоба с резиновым уплотнителем", "price": 160, "img": "img/voronka-jeloba-evro.png" },
+        { "name": "Желоб водосточный Евро", "price": 360, "img": "img/voronka-jeloba-evro.png" },
+        { "name": "Соединитель желоба", "price": 760, "img": "img/voronka-jeloba-evro.png" }
+    ]
+}
