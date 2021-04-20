@@ -6,6 +6,7 @@
       :id="id"
       @bringToBasket="addToCart"
     />
+    <Button @clicked="loadMoreData">Загрузить еще!</Button>
   </div>
 </template>
 
@@ -14,18 +15,35 @@ import CatalogItem from "./CatalogItem.vue";
 
 import { mapMutations, mapGetters, mapActions } from "vuex";
 
+import Button from "./Button.vue";
+
 export default {
   components: {
     CatalogItem,
+    Button,
+  },
+  data() {
+    return {
+      page: 0,
+    };
   },
   methods: {
-    ...mapActions(["requestData", "addToCart"]),
+    ...mapActions(["requestData", "addToCart", "requestCart"]),
+    loadMoreData() {
+      this.page++;
+      this.requestData(this.page);
+    },
+    // travelToCart() {
+    //   this.addToCart();
+    //   this.requestCart();
+    // },
   },
   computed: {
     ...mapGetters(["getItemsOnPage"]),
   },
   created() {
-    this.requestData();
+    this.loadMoreData();
+    this.requestCart();
   },
 };
 </script>

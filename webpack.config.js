@@ -2,9 +2,9 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
-    entry: "./Lesson_7/src/shop.js",
+    entry: "./Lesson_8/src/shop.js",
     output: {
-        path: path.resolve(__dirname, 'Lesson_7/public/'),
+        path: path.resolve(__dirname, 'Lesson_8/public/'),
         filename: "server.js"
     },
     resolve: {
